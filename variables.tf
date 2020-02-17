@@ -88,9 +88,9 @@ variable "tracing_config_mode" {
 # Variables: API Gateway integration
 # -----------------------------------------------------------------------------
 variable "api_gateway_permission" {
-  description = "If we integrate with API Gateway, enable this"
+  description = "If we integrate with API Gateway, enable this. Default enabled"
   type        = bool
-  default     = 1
+  default     = true
 }
 
 variable "api_gateway_rest_api_id" {
