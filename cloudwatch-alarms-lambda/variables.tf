@@ -72,7 +72,7 @@ variable "create_iteratorAge_alarm" {
 }
 
 variable "iteratorAge_threshold" {
-  description = "The value against which the specified statistic is compared"
+  description = "The value against which the specified statistic is compared in miliseconds"
   default     = 60000
 }
 
