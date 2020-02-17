@@ -93,3 +93,19 @@ module "cloudwatch-alarms-lambda" {
 
   function_name = "${local.resource_name_prefix}-${local.function_name}"
 }
+
+# -----------------------------------------------------------------------------
+# Module: SNS subscription
+# -----------------------------------------------------------------------------
+module "sns" {
+  source = "./sns-subscription"
+
+  namespace         = var.namespace
+  region            = var.region
+  resource_tag_name = var.resource_tag_name
+
+  sns_topic_subscription = var.sns_topic_subscription
+  sns_topic_arn          = var.sns_topic_arn
+
+  lambda_function_arn    = aws_lambda_function._.arn
+}

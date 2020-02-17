@@ -178,3 +178,18 @@ variable "deadLetterQueue_evaluationPeriods" {
   description = "The number of periods over which data is compared to the specified threshold"
   default     = 1
 }
+
+# -----------------------------------------------------------------------------
+# Variables: SNS
+# -----------------------------------------------------------------------------
+variable "sns_topic_subscription" {
+  description = "Subscribe this Lambda to an SNS topic, true or fale"
+  type        = bool
+  default     = false
+}
+
+variable "sns_topic_arn" {
+  description = "SNS topic ARN"
+  type        = string
+  default     = null
+}
