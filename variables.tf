@@ -94,8 +94,9 @@ variable "api_gateway_permission" {
 }
 
 variable "api_gateway_rest_api_id" {
-  description = "API Gateway REST API identifier"
+  description = "API Gateway REST API identifier, default null"
   type        = string
+  default     = null
 }
 
 # -----------------------------------------------------------------------------
