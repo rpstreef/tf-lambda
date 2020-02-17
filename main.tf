@@ -69,7 +69,7 @@ resource "aws_lambda_permission" "_" {
 # Module: CloudWatch Alarms Lambda
 # -----------------------------------------------------------------------------
 module "cloudwatch-alarms-lambda" {
-  source = "../../modules/cloudwatch-alarms-lambda"
+  source = "./cloudwatch-alarms-lambda"
 
   namespace         = var.namespace
   region            = var.region
