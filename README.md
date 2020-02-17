@@ -14,6 +14,8 @@ The following boolean variables control which alarms will be enabled;
 
 ## How to use:
 
+Use the code below in combination with the tf-iam module (```module.iam.role_arn```) to set the correct IAM policies.
+
 ```terraform
 module "lambda" {
   source = "github.com/rpstreef/tf-lambda?ref=v1.0"
@@ -49,8 +51,9 @@ module "lambda" {
 
   api_gateway_rest_api_id = var.api_gateway_rest_api_id
 }
-
 ```
+
+
 
 ## Changelog
 
