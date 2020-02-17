@@ -91,5 +91,5 @@ module "cloudwatch-alarms-lambda" {
   deadLetterQueue_threshold         = var.deadLetterQueue_threshold
   deadLetterQueue_evaluationPeriods = var.deadLetterQueue_evaluationPeriods
 
-  function_name = "${local.resource_name_prefix}-${local.lambda_function_name}"
+  function_name = "${local.resource_name_prefix}-${local.function_name}"
 }
