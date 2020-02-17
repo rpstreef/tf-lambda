@@ -51,7 +51,7 @@ resource "aws_cloudwatch_log_group" "_" {
 # Module: Lambda API Gateway permission
 # -----------------------------------------------------------------------------
 resource "aws_lambda_permission" "_" {
-  count         = var.api_gateway_permission ? 1 : null
+  count         = var.api_gateway_permission ? 1 : 0
   principal     = "apigateway.amazonaws.com"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function._.arn
