@@ -76,7 +76,7 @@ variable "lambda_memory_size" {
 
 variable "lambda_runtime" {
   description = "Runtime of this Lambda function"
-  default     = "nodejs10.x"
+  default     = "nodejs12.x"
 }
 
 variable "tracing_config_mode" {
