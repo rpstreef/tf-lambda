@@ -57,5 +57,8 @@ module "lambda" {
 
 ## Changelog
 
+### v1.1
+ - Added SNS Topic subscription sub-module
+
 ### v1.0
  - Initial release
