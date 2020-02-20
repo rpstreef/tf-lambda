@@ -1,6 +1,6 @@
 
 resource "aws_sns_topic_subscription" "_" {
-  count = var.sns_topic_subscription ? 1 : 0
+  count = var.create_sns_topic_subscription ? 1 : 0
 
   topic_arn = var.sns_topic_arn
   protocol  = "lambda"
@@ -8,7 +8,7 @@ resource "aws_sns_topic_subscription" "_" {
 }
 
 resource "aws_lambda_permission" "_" {
-  count = var.sns_topic_subscription ? 1 : 0
+  count = var.create_sns_topic_subscription ? 1 : 0
   
   statement_id  = "AllowExecutionFromSNS"
   action        = "lambda:InvokeFunction"

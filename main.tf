@@ -51,7 +51,7 @@ resource "aws_cloudwatch_log_group" "_" {
 # Module: Lambda API Gateway permission
 # -----------------------------------------------------------------------------
 resource "aws_lambda_permission" "_" {
-  count         = var.api_gateway_permission ? 1 : 0
+  count         = var.create_api_gateway_integration ? 1 : 0
   principal     = "apigateway.amazonaws.com"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function._.arn
@@ -104,8 +104,8 @@ module "sns" {
   region            = var.region
   resource_tag_name = var.resource_tag_name
 
-  sns_topic_subscription = var.sns_topic_subscription
-  sns_topic_arn          = var.sns_topic_arn
+  create_sns_topic_subscription = var.sns_topic_subscription
+  sns_topic_arn                 = var.sns_topic_arn
 
-  lambda_function_arn    = aws_lambda_function._.arn
+  lambda_function_arn = aws_lambda_function._.arn
 }

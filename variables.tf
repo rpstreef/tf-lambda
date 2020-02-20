@@ -87,7 +87,7 @@ variable "tracing_config_mode" {
 # -----------------------------------------------------------------------------
 # Variables: API Gateway integration
 # -----------------------------------------------------------------------------
-variable "api_gateway_permission" {
+variable "create_api_gateway_integration" {
   description = "If we integrate with API Gateway, enable this. Default enabled"
   type        = bool
   default     = true
@@ -182,7 +182,7 @@ variable "deadLetterQueue_evaluationPeriods" {
 # -----------------------------------------------------------------------------
 # Variables: SNS
 # -----------------------------------------------------------------------------
-variable "sns_topic_subscription" {
+variable "create_sns_topic_subscription" {
   description = "Subscribe this Lambda to an SNS topic, true or fale"
   type        = bool
   default     = false
