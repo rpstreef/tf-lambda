@@ -12,6 +12,10 @@ The following boolean variables control which alarms will be enabled;
   - More on the iteratorAge metric [here](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-iterator-age/)
 - __create_deadLetterQueue_alarm:__ Alarm for DLQueue messages (for async Lambda invocations or SQS queues for example), 1 message within 1 minute triggers the alarm.
 
+This AWS Lambda module can integrate with the following:
+- __API Gateway:__ The parameter ```create_api_gateway_integration``` is set to ```true``` by default, supply the ```api_gateway_rest_api_id```
+- __SNS Topic:__ The parameter ```create_sns_topic_subscription``` is set to ```false``` by default. 
+
 ## How to use:
 
 Use the code below in combination with the tf-iam module (```module.iam.role_arn```) to set the correct IAM policies.
@@ -52,8 +56,6 @@ module "lambda" {
   api_gateway_rest_api_id = var.api_gateway_rest_api_id
 }
 ```
-
-
 
 ## Changelog
 
