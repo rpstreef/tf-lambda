@@ -15,6 +15,7 @@ The following boolean variables control which alarms will be enabled;
 This AWS Lambda module can integrate with the following:
 - __API Gateway:__ The parameter ```create_api_gateway_integration``` is set to ```true``` by default, supply the ```api_gateway_rest_api_id```
 - __SNS Topic:__ The parameter ```create_sns_topic_subscription``` is set to ```false``` by default. 
+- __SQS:__ The parameter ```create_sqs_integration``` is set to ```false``` by default. This can create an event source mapping to an SQS queue.
 
 ## How to use:
 
