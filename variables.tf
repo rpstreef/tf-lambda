@@ -100,6 +100,27 @@ variable "api_gateway_rest_api_id" {
 }
 
 # -----------------------------------------------------------------------------
+# Variables: SQS integration
+# -----------------------------------------------------------------------------
+variable "create_sqs_integration" {
+  description = "If we integrate with SQS as event source, enable this. Default false"
+  type        = bool
+  default     = false
+}
+
+variable "sqs_arn" {
+  description = "SQS ARN string"
+  type        = string
+  default     = null
+}
+
+variable "sqs_batch_size" {
+  description = "The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to 100 for DynamoDB and Kinesis, 10 for SQS."
+  type        = number
+  default     = 10
+}
+
+# -----------------------------------------------------------------------------
 # Variables: Cloudwatch Alarms errorRate
 # -----------------------------------------------------------------------------
 
