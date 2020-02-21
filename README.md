@@ -60,6 +60,9 @@ module "lambda" {
 
 ## Changelog
 
+### v1.2
+ - Added SQS event source integration
+ 
 ### v1.1
  - Added SNS Topic subscription sub-module
 
