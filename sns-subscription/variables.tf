@@ -17,7 +17,7 @@ variable "resource_tag_name" {
 # -----------------------------------------------------------------------------
 # Variables: SNS
 # -----------------------------------------------------------------------------
-variable "sns_topic_subscription" {
+variable "create_sns_topic_subscription" {
   description = "Subscribe this Lambda to an SNS topic, true or fale"
   type        = bool
   default     = false

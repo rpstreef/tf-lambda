@@ -116,8 +116,8 @@ module "sns" {
   region            = var.region
   resource_tag_name = var.resource_tag_name
 
-  sns_topic_subscription = var.create_sns_topic_subscription
-  sns_topic_arn          = var.sns_topic_arn
+  create_sns_topic_subscription = var.create_sns_topic_subscription
+  sns_topic_arn                 = var.sns_topic_arn
 
   lambda_function_arn = aws_lambda_function._.arn
 }
