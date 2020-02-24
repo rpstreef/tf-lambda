@@ -69,7 +69,7 @@ resource "aws_lambda_permission" "_" {
 # Module: SQS Queue event source
 # -----------------------------------------------------------------------------
 resource "aws_lambda_event_source_mapping" "_" {
-  count         = var.create_sqs_integration ? 1 : 0
+  count = var.create_sqs_integration ? 1 : 0
 
   event_source_arn = var.sqs_arn
   function_name    = aws_lambda_function._.arn
@@ -116,8 +116,8 @@ module "sns" {
   region            = var.region
   resource_tag_name = var.resource_tag_name
 
-  create_sns_topic_subscription = var.sns_topic_subscription
-  sns_topic_arn                 = var.sns_topic_arn
+  sns_topic_subscription = var.create_sns_topic_subscription
+  sns_topic_arn          = var.sns_topic_arn
 
   lambda_function_arn = aws_lambda_function._.arn
 }
