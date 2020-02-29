@@ -23,10 +23,6 @@ variable "lambda_function_name" {
   description = "Name of the Lambda function, this will also determine it's handler path"
 }
 
-variable "distribution_file_name" {
-  description = "Name of the ZIP file this Lambda function code will be bundled in to"
-}
-
 variable "lambda_layer_arn" {
   description = "Lambda layer ARN that holds the dependencies for this Lambda function"
 }
