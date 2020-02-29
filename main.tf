@@ -12,19 +12,29 @@ locals {
 data "aws_caller_identity" "_" {}
 
 # -----------------------------------------------------------------------------
-# Resources: Lambda Register
+# Data: Dummy zip file, use CICD to deploy actual sourcecode
+# -----------------------------------------------------------------------------
+data "archive_file" "dummy" {
+  type        = "zip"
+  output_path = "${path.module}/dummy.zip"
+
+  source {
+    content = "dummy"
+    filename = "dummy.txt"
+  }
+
+# -----------------------------------------------------------------------------
+# Resources: Lambda
 # -----------------------------------------------------------------------------
 resource "aws_lambda_function" "_" {
   function_name                  = local.function_name
   role                           = var.lambda_role_arn
   runtime                        = var.lambda_runtime
-  filename                       = var.lambda_filename
+  filename                       = data.archive_file.dummy.output_path
   handler                        = "handlers/${var.lambda_function_name}/index.handler"
   timeout                        = var.lambda_timeout
   memory_size                    = var.lambda_memory_size
   reserved_concurrent_executions = var.reserved_concurrent_executions
-
-  source_code_hash = filebase64sha256("${var.dist_path}/${var.distribution_file_name}")
 
   layers = ["${var.lambda_layer_arn}"]
 
@@ -81,7 +91,7 @@ resource "aws_lambda_event_source_mapping" "_" {
 # Module: CloudWatch Alarms Lambda
 # -----------------------------------------------------------------------------
 module "cloudwatch-alarms-lambda" {
-  source = "./cloudwatch-alarms-lambda"
+  source = "./modules/cloudwatch-alarms-lambda"
 
   namespace         = var.namespace
   region            = var.region
@@ -110,7 +120,7 @@ module "cloudwatch-alarms-lambda" {
 # Module: SNS subscription
 # -----------------------------------------------------------------------------
 module "sns" {
-  source = "./sns-subscription"
+  source = "./modules/sns-subscription"
 
   namespace         = var.namespace
   region            = var.region
