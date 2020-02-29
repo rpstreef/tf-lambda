@@ -18,10 +18,9 @@ data "archive_file" "dummy" {
   type        = "zip"
   output_path = "${path.module}/dummy.zip"
 
-  source {
-    content = "dummy"
-    filename = "dummy.txt"
-  }
+  source_content = "dummy"
+  source_content_filename = "dummy.txt" 
+}
 
 # -----------------------------------------------------------------------------
 # Resources: Lambda
