@@ -31,7 +31,6 @@ module "lambda" {
 
   lambda_function_name = local.lambda_function_name
   lambda_role_arn      = module.iam.role_arn
-  lambda_filename      = "${var.dist_path}/${var.lambda_zip_name}"
   lambda_layer_arn     = var.lambda_layer_arn
 
   lambda_memory_size = var.lambda_memory_size
@@ -60,6 +59,9 @@ module "lambda" {
 
 ## Changelog
 
+### v1.3
+ - Removed lambda_filename variable, use CI/CD instead to deploy Lambda code
+ 
 ### v1.2
  - Added SQS event source integration
  
