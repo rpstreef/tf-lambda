@@ -45,6 +45,12 @@ resource "aws_lambda_function" "_" {
     variables = var.lambda_environment_variables
   }
 
+  lifecycle {
+    ignore_changes = [
+      layers
+    ]
+  }
+
   tags = {
     Environment = var.namespace
     Name        = var.resource_tag_name
