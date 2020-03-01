@@ -31,10 +31,6 @@ variable "lambda_role_arn" {
   description = "IAM Role ARN that defines all access rights to AWS services required by this Lambda function"
 }
 
-variable "dist_path" {
-  description = "The directory path name to the distribution (zip) directory"
-}
-
 variable "lambda_environment_variables" {
   description = "Lambda environment variables"
   type        = map(string)
