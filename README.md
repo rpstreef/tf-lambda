@@ -36,10 +36,6 @@ module "lambda" {
   lambda_memory_size = var.lambda_memory_size
   lambda_timeout     = var.lambda_timeout
 
-  distribution_file_name = var.lambda_zip_name
-
-  dist_path = var.dist_path
-
   lambda_environment_variables = {
     NAMESPACE = var.namespace
     REGION    = var.region
